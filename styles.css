@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    height: 125px;
+}
+
+.logo{
+    width: 200px;
+    height: 200px;
+    margin-top: -50px;
+}
+
+.nav-items ul{
+   display: flex;
+   list-style: none;
+}
+
+.nav-items ul li{
+    padding: 30px 40px;
+    font-size: 25px ;
+
+}
+.nav-items ul li:hover{
+    text-decoration:underline 1px;
+    text-shadow: 5px;
+    cursor: pointer;
+}
+
+.search{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.search input{
+    text-align:center;
+    height: 50px;
+    width: 500px;
+
+}
+.search button{
+    height: 50px;
+    width: 80px;
+    margin-left: 15px;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.res-container{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 30px;
+}
+
+.res-card{
+    width:250px;
+    height: auto;
+    margin: 70px 20px 30px;
+    text-align: center;
+    /* style={{ backgroundColor: "#f0f0f0" }} */
+}
+.res-card .card-img{
+    background-size: cover;
+    width: 240px;
+    height: 260px;
+    border-radius: 10px;
+}
+.res-card:hover{
+  cursor: pointer;
+}
+
+.end{
+    padding: 20px;
+    border: 1px solid black;
+    text-align: center;
+}
