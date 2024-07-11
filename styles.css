@@ -34,12 +34,13 @@
 .search{
     text-align: center;
     margin-top: 20px;
+    margin-right: 70px;
 }
 
 .search input{
     text-align:center;
     height: 50px;
-    width: 500px;
+    width: 480px;
 
 }
 .search button{
@@ -77,4 +78,24 @@
     padding: 20px;
     border: 1px solid black;
     text-align: center;
+}
+
+.features{
+    display: flex;
+    justify-content: space-between;
+}
+
+.features .top-res{
+    margin-top: 40px;
+    margin-left: 100px;
+}
+
+.top-res :hover{
+    cursor: pointer;
+}
+
+.res-btn{
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 5px;
 }
