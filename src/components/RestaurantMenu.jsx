@@ -1,35 +1,16 @@
-import { useEffect, useState } from "react";
+
 import { useParams } from "react-router-dom";
 import Shimmer from "./shimmer";
-import { MENU_URL } from "../utils/constants";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 
 const RestaurantMenu=() =>{
-   const [resInfo,setResInfo]= useState(null);
-
 
    const {resId}=useParams();
-   
-    useEffect(()=>{
-       fetchMenu();
-       
-    },[resId]);
-    
-     
-    const fetchMenu= async ()=>{
-        const data= await fetch(MENU_URL+resId);
 
-        const response=await data.json();
-        console.log(response);
-        
-        setResInfo(response.data);
-        console.log(resInfo); 
-        
-
-    };
+   const resInfo=useRestaurantMenu(resId);  //this is custom hook by which we just updating the restaurant menu details on page just using resId
 
     if(resInfo===null) return <Shimmer/>
-
     const{name , cuisines , costForTwoMessage}= resInfo?.cards[2]?.card?.card?.info;   //destructurising the object
 
     const {itemCards} =resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;

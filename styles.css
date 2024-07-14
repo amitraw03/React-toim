@@ -21,15 +21,19 @@
 }
 
 .nav-items ul li{
-    padding: 30px 40px;
+    padding: 30px 25px;
     font-size: 25px ;
-
 }
+.not-anchor{
+    text-decoration: none;
+    color: inherit;
+}
+
 .nav-items ul li:hover{
-    text-decoration:underline 1px;
     text-shadow: 5px;
     cursor: pointer;
 }
+
 .nav-items button{
     width: 80px;
     height: 40px;
