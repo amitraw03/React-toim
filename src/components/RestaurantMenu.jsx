@@ -15,13 +15,6 @@ const RestaurantMenu=() =>{
 
     const {itemCards} =resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
 
-   // const cardInfo = resInfo?.cards[2]?.card?.card?.info || {};
-   // const name = cardInfo.name || 'Default Name';
-   // const cuisines = cardInfo.cuisines || [];
-   // const costForTwoMessage = cardInfo.costForTwoMessage || 'N/A';
- 
-   // const itemCards = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards || [];
-
     return(
           <div className="menu">
              <h1>{name}</h1>
