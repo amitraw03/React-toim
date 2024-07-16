@@ -9,23 +9,23 @@ const Header = () => {
     const isOnline=useOnlineStatus();
 
     return (
-        <div className="header">
-            <div className="logo-container">
-                <img className="logo" src={LOGO_URL}></img>
+        <div className="header flex justify-between shadow-lg h-28 ">
+            <div className="logo-container size-36 relative bottom-6 ">
+                <img className="logo w-36 h-[136px]" src={LOGO_URL}></img>
             </div>
-            <div className="nav-items">
-                <ul>
-                    <li>{isOnline?'🟢':'🔴'}</li>
-                    <li><Link className="not-anchor" to="/"> Home</Link></li>
-                    <li><Link className="not-anchor" to="/about"> about Us</Link></li>
-                    <li><Link className="not-anchor" to="/contact">Contact Us</Link></li>
-                    <li><Link className="not-anchor" to="/grocery">Grocery</Link></li>
-                    <li>🧺Cart</li>
+            <div className="nav-items ">
+                <ul className="flex">
+                    <li className="px-6 mt-6">{isOnline?'🟢':'🔴'}</li>
+                    <li className="text-xl font-mono  px-6 mt-6"><Link  to="/"> Home</Link></li>
+                    <li className="text-xl font-mono px-6 mt-6"><Link  to="/about"> About Us</Link></li>
+                    <li className="text-xl font-mono px-6 mt-6"><Link  to="/contact"> Contact Us</Link></li>
+                    <li className="text-xl font-mono px-6 mt-6"><Link  to="/grocery">Grocery</Link></li>
+                    <li className="text-xl font-mono px-6 mt-6">🧺Cart</li>
                     <button onClick={()=>{
                         btnSate==="Login"
                         ? setBtnState("Logout")
                         : setBtnState("Login")
-                    }}
+                    }}  className="font-serif px-6 mt-4 mr-3 bg-green-500 py-2 rounded-md"
                     >{btnSate}</button>
                 </ul>
             </div>
