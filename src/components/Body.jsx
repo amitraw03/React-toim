@@ -12,28 +12,29 @@ const Body = () => {
 
     const [searchText, setSearchText] = useState("");
 
+   
     useEffect(() => {
         fetchData();    //API call functn
     }, []);
 
     const fetchData = async () => {
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.99740&lng=79.00110&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.4798396&lng=77.3223915&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
 
         const response = await data.json();
-        console.log(response); 
+        console.log(response);
 
         //optional chaining use of ? while accessing
-        // console.log(response.data.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        // console.log(response.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);   
         setListOfRestaurants(response.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setFilteredRestaurants(response.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);   //for re-rendering
-        console.log(setListOfRestaurants);
+        // console.log(setListOfRestaurants); 
     }
 
     //Condn of Internet Connectivity Of User
-     const isOnline= useOnlineStatus();
-     if(isOnline===false) return(
+    const isOnline = useOnlineStatus();
+    if (isOnline === false) return (
         <h1>Looks like you're Offline !! Please Check Your Interent Connection</h1>
-     );
+    );
 
     //conditional Rendering
     return ListOfRestaurants.length === 0 ? <Shimmer /> : (
@@ -52,7 +53,7 @@ const Body = () => {
                 </div>
 
                 <div className="search  w-[420px] h-auto my-4 gap-4">
-                    <input className="h-[40px] w-[290px] outline-indigo-400 text-center"type="search" placeholder="Search Your Food" value={searchText} onChange={(e) => { //we use onchange which works dynamically
+                    <input className="h-[40px] w-[290px] outline-indigo-400 text-center" type="search" placeholder="Search Your Food" value={searchText} onChange={(e) => { //we use onchange which works dynamically
                         setSearchText(e.target.value);
                     }}>
                     </input>
@@ -69,9 +70,10 @@ const Body = () => {
             <div className="res-container flex flex-wrap mx-14">
                 {
                     filteredRestaurants.map((restaurant) => (
-                        <Link key={restaurant.info.id}  
+                        <Link key={restaurant.info.id}
                             to={"/restaurants/" + restaurant.info.id}>
-                            <RestaurantCard resData={restaurant} /></Link>
+                             <RestaurantCard resData={restaurant} />
+                        </Link>
                     ))
                 }
             </div>
