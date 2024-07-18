@@ -41,7 +41,7 @@ const Body = () => {
         <div className="body">
             <div className="features flex justify-between">
 
-                <div className="top-res bg-indigo-600  mx-24 rounded-md my-4 text-slate-200  p-2">
+                <div className="top-res bg-indigo-600 border-2 mx-24 rounded-md my-4 text-slate-200  p-2">
                     <button className="res-btn"
                         onClick={() => {
                             //filter the res card and update the UI (what are top rated Restaurants)
@@ -67,7 +67,7 @@ const Body = () => {
                     </button>
                 </div>
             </div>
-            <div className="res-container flex flex-wrap mx-14">
+            <div className="res-container flex flex-wrap mx-14 mb-10">
                 {
                     filteredRestaurants.map((restaurant) => (
                         <Link key={restaurant.info.id}

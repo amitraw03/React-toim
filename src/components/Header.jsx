@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
-    const [btnSate,setBtnState]=useState("Login")
+    const [btnState,setBtnState]=useState("Login")
 
     const isOnline=useOnlineStatus();
 
@@ -22,11 +22,11 @@ const Header = () => {
                     <li className="text-xl font-mono px-6 mt-6"><Link  to="/grocery">Grocery</Link></li>
                     <li className="text-xl font-mono px-6 mt-6">🧺Cart</li>
                     <button onClick={()=>{
-                        btnSate==="Login"
+                        btnState==="Login"
                         ? setBtnState("Logout")
                         : setBtnState("Login")
-                    }}  className="font-serif px-6 mt-4 mr-3 bg-green-500 py-2 rounded-md"
-                    >{btnSate}</button>
+                    }}  className={`font-serif px-6 mt-4 mr-3 ${btnState === "Login" ? 'bg-green-500' : 'bg-red-500'} py-2 rounded-md`}  //can write classname like this too
+                    >{btnState}</button>
                 </ul>
             </div>
         </div>

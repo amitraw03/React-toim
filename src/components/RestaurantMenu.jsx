@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Shimmer from "./shimmer";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
+import { useState } from "react";
 
 
 const RestaurantMenu = () => {
@@ -10,6 +11,8 @@ const RestaurantMenu = () => {
    const { resId } = useParams();
 
    const resInfo = useRestaurantMenu(resId);  //this is custom hook by which we just updating the restaurant menu details on page just using resId
+
+   const[showIndex,setShowIndex] = useState(null); //Lifting the State Up and now got power to nearest ancestor and now on bais of indexing distribute power one at a time
 
    if (resInfo === null) return <Shimmer />
    const { name, cuisines, costForTwoMessage } = resInfo?.cards[2]?.card?.card?.info;   //destructurising the object
@@ -30,8 +33,11 @@ const RestaurantMenu = () => {
             {cuisines.join(",")} -{costForTwoMessage}
          </p>
          {categories.map(
-            (category) => 
-            <RestaurantCategory key={category?.card?.card?.title} data={category?.card?.card} />
+            (category, index) => 
+            <RestaurantCategory key={category?.card?.card?.title} 
+            data={category?.card?.card}
+            showItems={index===showIndex}
+            setShowIndex={() => setShowIndex(index===showIndex ? null :index)} />  //here we added logic for toggle activity by clicking the same accordian header
          )}
 
       </div>
