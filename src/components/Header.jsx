@@ -2,14 +2,18 @@ import { useState } from "react";
 import { LOGO_URL } from "../utils/constants";  //importing Named exports 
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { useSelector } from "react-redux";
 
 const Header = () => {
     const [btnState,setBtnState]=useState("Login")
 
     const isOnline=useOnlineStatus();
 
+    // Subscribing To the Store using our Selector
+    const cartItems= useSelector((store) => store.cart.items);
+
     return (
-        <div className="header flex justify-between shadow-lg h-28 ">
+        <div className=" flex justify-between shadow-lg h-28 ">
             <div className="logo-container size-36 relative bottom-6 ">
                 <img className="logo w-36 h-[136px]" src={LOGO_URL}></img>
             </div>
@@ -20,7 +24,7 @@ const Header = () => {
                     <li className="text-xl font-mono px-6 mt-6"><Link  to="/about"> About Us</Link></li>
                     <li className="text-xl font-mono px-6 mt-6"><Link  to="/contact"> Contact Us</Link></li>
                     <li className="text-xl font-mono px-6 mt-6"><Link  to="/grocery">Grocery</Link></li>
-                    <li className="text-xl font-mono px-6 mt-6">🧺Cart</li>
+                    <li className="text-xl font-mono px-6 mt-6">🧺Cart({cartItems.length})</li>
                     <button onClick={()=>{
                         btnState==="Login"
                         ? setBtnState("Logout")
