@@ -11,6 +11,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 // import Grocery from "./components/Grocery"; 
 
 //Lazzy Loading (very optimized way of code splitting and to prevent from creation of single huge memory file)
@@ -50,6 +51,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/grocery",
                 element: <Suspense fallback="<h1>Loading...</h1>"><Grocery /></Suspense>,  //suspense working in the meanwhile time
+            },
+            {
+                path: "/cart",
+                element: <Cart/>,
             },
             {
                 path: "/restaurants/:resId",
