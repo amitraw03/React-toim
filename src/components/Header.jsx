@@ -24,7 +24,7 @@ const Header = () => {
                     <li className="text-xl font-mono px-6 mt-6"><Link  to="/about"> About Us</Link></li>
                     <li className="text-xl font-mono px-6 mt-6"><Link  to="/contact"> Contact Us</Link></li>
                     <li className="text-xl font-mono px-6 mt-6"><Link  to="/grocery">Grocery</Link></li>
-                    <li className="text-xl font-mono px-6 mt-6"><Link to="/cart">🧺Cart({cartItems.length})</Link></li>
+                    <li className="text-xl font-mono px-6 mt-6"><Link to="/cart">🛒Cart({cartItems.length})</Link></li>
                     <button onClick={()=>{
                         btnState==="Login"
                         ? setBtnState("Logout")

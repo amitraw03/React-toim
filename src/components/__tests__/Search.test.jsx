@@ -3,7 +3,7 @@ import Body from "../Body";
 import { act } from "react";
 import { BrowserRouter } from "react-router-dom";
 import "@testing-library/jest-dom"
-import MOCK_DATA from "../mocks/searchResListBody.json"
+import MOCK_DATA from "../mocks/searchResListBodyMock.json"
 
 global.fetch = jest.fn(() => {
     return Promise.resolve({
@@ -13,7 +13,7 @@ global.fetch = jest.fn(() => {
     })
 })
 
-//HERE we did INtegration testing --
+//HERE we did INtegration testing --************************************
 //testing on the resCards w.r.t search feature
 it("should Search Res List for eatfit text input", async () => {
     await act(async () =>

@@ -17,7 +17,8 @@ const CategoryItemlist = ({ items }) => {
     return (
         <div>
             {items.map((item) => (
-                <div key={item.card.info.id} className="w-full h-36 flex justify-between shadow-md transform transition-transform duration-200 hover:scale-105">
+                <div key={item.card.info.id}  data-testid="foodItems"
+                className="w-full h-36 flex justify-between shadow-md transform transition-transform duration-200 hover:scale-105">
                     <div className="ml-4 ">
                         <span className="font-semibold text-xl">{item.card.info.name} - </span>
                         <span className="font-thin">{item.card.info.category}</span>

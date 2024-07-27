@@ -33,7 +33,7 @@ it("Should render header component with a Cart item", () => {
         </BrowserRouter>
     );
     //Querying
-    const cartItems= screen.getByText(/Cart/);  //can be done in this way too
+    const cartItems= screen.getByText(/Cart/);  //can be done in this way too but here it means whole cart
 
     //Assert
     expect(cartItems).toBeInTheDocument();
