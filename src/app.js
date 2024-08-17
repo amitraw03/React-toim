@@ -12,6 +12,7 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import Cart from "./components/Cart";
+import BgVideo from "./components/BgVideo";
 // import Grocery from "./components/Grocery"; 
 
 //Lazzy Loading (very optimized way of code splitting and to prevent from creation of single huge memory file)
@@ -23,6 +24,7 @@ const AppLayout = () => {
         <Provider store={appStore}>
             <div className="app">
                 <Header />
+                <BgVideo/>
                 <Outlet />   {/**executing children routes concept */}
                 <Footer />
             </div>

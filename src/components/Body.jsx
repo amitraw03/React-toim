@@ -53,14 +53,14 @@ const Body = () => {
                 </div>
 
                 <div className="search  w-[420px] h-auto my-4 gap-4">
-                    <input className="h-[40px] w-[290px] outline-indigo-400 text-center" type="text"  
+                    <input className="h-[40px] w-[290px] outline-indigo-400" type="text"  
                     data-testid="searchInput"
                     value={searchText} 
                     onChange={(e) => { //we use onchange which works dynamically
                             setSearchText(e.target.value);
                     }}>
                     </input>
-                    <button className="px-5 py-2 rounded-lg bg-indigo-600 font-serif text-slate-50" onClick={() => {
+                    <button className="px-5 py-2 ml-1 rounded-lg bg-indigo-600 font-serif text-slate-50" onClick={() => {
                         //filter the res card and update the UI (what u want o eat)
                         const searchRes = ListOfRestaurants.filter(
                             (res) => res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -70,7 +70,7 @@ const Body = () => {
                     </button>
                 </div>
             </div>
-            <div className="res-container flex flex-wrap mx-14 mb-10">
+            <div className=" flex flex-wrap mx-14 mb-10">
                 {
                     filteredRestaurants.map((restaurant) => (
                         <Link key={restaurant.info.id}
